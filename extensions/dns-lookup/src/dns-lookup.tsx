@@ -11,6 +11,7 @@ import {
   open,
   openExtensionPreferences,
 } from "@raycast/api";
+import { showFailureToast } from "@raycast/utils";
 import { useState, useEffect, useRef } from "react";
 
 // --- UTILS ---
@@ -224,9 +225,7 @@ export default function Command(props: LaunchProps<{ arguments: { domain?: strin
       if (!postRes.ok) {
         if (postRes.status === 429) {
           if (hasToken) {
-            await showToast({
-              style: Toast.Style.Failure,
-              title: "Globalping Rate Limit Exceeded",
+            await showFailureToast("Globalping Rate Limit Exceeded", {
               message: "Please consider to try again later or get more credits on globalping.io.",
               primaryAction: {
                 title: "Get More Credits",
@@ -237,9 +236,7 @@ export default function Command(props: LaunchProps<{ arguments: { domain?: strin
               },
             });
           } else {
-            await showToast({
-              style: Toast.Style.Failure,
-              title: "Globalping Rate Limit Exceeded",
+            await showFailureToast("Globalping Rate Limit Exceeded", {
               message: "Please consider to try again later or adding a free Globalping API key for higher limits.",
               primaryAction: {
                 title: "Open Preferences",
