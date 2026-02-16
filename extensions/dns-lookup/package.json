@@ -18,7 +18,6 @@
     {
       "name": "dns-lookup",
       "title": "DNS Lookup",
-      "subtitle": "Fast & Global DNS Check",
       "description": "Check DNS propagation instantly using DoH (Google, Cloudflare, Alibaba, DNS.SB) or global propagation with worldwide DNS servers.",
       "mode": "view"
     }
