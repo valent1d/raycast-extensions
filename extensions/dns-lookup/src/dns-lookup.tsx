@@ -24,11 +24,6 @@ const getFlagEmoji = (countryCode: string) => {
   return String.fromCodePoint(...codePoints);
 };
 
-// --- TYPES ---
-interface Preferences {
-  globalpingToken?: string;
-}
-
 interface DohResponse {
   Answer?: { data: string; type: number }[];
   Authority?: { data: string; type: number }[];
@@ -302,7 +297,7 @@ export default function Command(props: LaunchProps<{ arguments: { domain?: strin
         }
 
         return {
-          id: `global-${r.probe.city}-${Math.random()}`,
+          id: `global-${r.probe.country}-${r.probe.city}-${r.probe.network}`,
           provider: `${r.probe.city}`,
           serverInfo: r.probe.network || r.probe.country,
           flag: getFlagEmoji(r.probe.country),
