@@ -24,11 +24,6 @@ import { getCurrentLocationHint, getRefreshActionHint } from "./utils/shortcuts"
 import { useRecentLocations } from "./hooks/useLocationDirectory";
 import { useMeasurement } from "./hooks/useMeasurement";
 
-interface Arguments {
-  target: string;
-  from: string;
-}
-
 interface SubmittedTracerouteRequest {
   target: string;
   from: string;
@@ -129,7 +124,7 @@ function getTracerouteFailureMessage(result: TracerouteResult): string {
 
 // Main command
 
-function Command(props: LaunchProps<{ arguments: Arguments }>) {
+function Command(props: LaunchProps<{ arguments: Arguments.Traceroute }>) {
   const { token } = getAccessToken();
 
   return (

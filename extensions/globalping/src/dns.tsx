@@ -26,12 +26,6 @@ import { getCurrentLocationHint, getRefreshActionHint } from "./utils/shortcuts"
 import { useRecentLocations } from "./hooks/useLocationDirectory";
 import { useMeasurement } from "./hooks/useMeasurement";
 
-interface Arguments {
-  target: string;
-  from: string;
-  type: string;
-}
-
 interface SubmittedDnsRequest {
   target: string;
   from: string;
@@ -179,7 +173,7 @@ function ProbeDetail({ probeResult, target }: { probeResult: ProbeResult; target
 
 // Main command
 
-function Command(props: LaunchProps<{ arguments: Arguments }>) {
+function Command(props: LaunchProps<{ arguments: Arguments.Dns }>) {
   const { token } = getAccessToken();
 
   return (

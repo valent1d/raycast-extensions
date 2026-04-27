@@ -19,11 +19,6 @@ import { getCurrentLocationHint, getRefreshActionHint } from "./utils/shortcuts"
 import { useRecentLocations } from "./hooks/useLocationDirectory";
 import { useMeasurement } from "./hooks/useMeasurement";
 
-interface Arguments {
-  target: string;
-  from: string;
-}
-
 interface SubmittedMtrRequest {
   target: string;
   from: string;
@@ -217,7 +212,7 @@ function getMtrFailureMessage(result: MtrResult): string {
 
 // Main command
 
-function Command(props: LaunchProps<{ arguments: Arguments }>) {
+function Command(props: LaunchProps<{ arguments: Arguments.Mtr }>) {
   const { token } = getAccessToken();
 
   return (

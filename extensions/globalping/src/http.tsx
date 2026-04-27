@@ -26,12 +26,6 @@ import { getCurrentLocationHint, getRefreshActionHint } from "./utils/shortcuts"
 import { useRecentLocations } from "./hooks/useLocationDirectory";
 import { useMeasurement } from "./hooks/useMeasurement";
 
-interface Arguments {
-  target: string;
-  from: string;
-  method: string;
-}
-
 interface SubmittedHttpRequest {
   target: string;
   from: string;
@@ -127,7 +121,7 @@ function ProbeDetail({ probeResult, target }: { probeResult: ProbeResult; target
 
 // Main command
 
-function Command(props: LaunchProps<{ arguments: Arguments }>) {
+function Command(props: LaunchProps<{ arguments: Arguments.Http }>) {
   const { token } = getAccessToken();
 
   return (

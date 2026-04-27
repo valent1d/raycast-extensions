@@ -18,11 +18,6 @@ import { createPingQuicklink } from "./utils/quicklinks";
 import { getCurrentLocationHint, getRefreshActionHint } from "./utils/shortcuts";
 import { useMeasurement } from "./hooks/useMeasurement";
 
-interface Arguments {
-  target: string;
-  from: string;
-}
-
 interface SubmittedPingRequest {
   target: string;
   from: string;
@@ -167,7 +162,7 @@ function ProbeDetail({ probeResult }: { probeResult: ProbeResult }) {
 
 // Main command
 
-function Command(props: LaunchProps<{ arguments: Arguments }>) {
+function Command(props: LaunchProps<{ arguments: Arguments.Ping }>) {
   const { token } = getAccessToken();
 
   return (
